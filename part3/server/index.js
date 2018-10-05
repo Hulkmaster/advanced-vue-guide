@@ -20,11 +20,16 @@ const devMiddleware = require('./utils/koa-webpack-dev-middleware')(
   }
 );
 
-app.use(mount('/dist', serve(path.join(__dirname, '../dist'))));
+app.use(async (ctx, next) => {
+  next();
+});
+
+app.use(devMiddleware);
 
 app.use(async (ctx) => {
+  console.log('try');
   ctx.set('Content-Type', 'text/html');
-  ctx.body = await readFile(path.join(__dirname, '../index.html'));
+  ctx.body = devMiddleware.fileSystem.readFileSync(path.join(clientConfig.output.path, 'index.html'));
 });
 
 app.listen(process.env.PORT || 3000);
