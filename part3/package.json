@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev:build": "webpack --config webpack.config.dev.js --color --verbose --progress --watch",
-    "dev:server": "nodemon -w ./server/**/*.js server/index.js"
+    "dev:server": "nodemon -w server server/index.js"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.19",
@@ -16,7 +15,8 @@
     "vue-template-compiler": "^2.5.17",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-middleware": "^3.4.0"
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-hot-middleware": "^2.24.2"
   },
   "dependencies": {
     "koa": "^2.5.3",

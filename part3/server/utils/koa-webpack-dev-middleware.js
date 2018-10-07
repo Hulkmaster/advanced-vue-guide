@@ -5,8 +5,7 @@ module.exports = (compiler, opts) => {
 
   async function middleware(ctx, next) {
     await expressMiddleware(
-      ctx.req,
-      {
+      ctx.req, {
         end: (content) => {
           ctx.body = content;
         },

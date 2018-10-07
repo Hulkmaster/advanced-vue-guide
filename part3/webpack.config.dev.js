@@ -1,5 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {
+  HotModuleReplacementPlugin,
+  NoEmitOnErrorsPlugin
+} = require('webpack');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
@@ -7,9 +11,12 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/main.js',
+  entry: [
+    'webpack-hot-middleware/client',
+    './src/main.js'
+  ],
   output: {
-    publicPath: '/',
+    publicPath: '/dist',
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].bundle.js',
   },
@@ -20,6 +27,8 @@ module.exports = {
     }],
   },
   plugins: [
+    new HotModuleReplacementPlugin(),
+    new NoEmitOnErrorsPlugin(),
     new CleanWebpackPlugin(['dist'], {
       watch: true,
     }),

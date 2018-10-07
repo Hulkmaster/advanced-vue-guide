@@ -20,14 +20,16 @@ const devMiddleware = require('./utils/koa-webpack-dev-middleware')(
   }
 );
 
-app.use(async (ctx, next) => {
-  next();
-});
+const hotMiddleware = require('./utils/koa-webpack-hot-middleware')(
+  clientCompiler, {
+    heartbeat: 5000,
+  }
+);
 
 app.use(devMiddleware);
+app.use(hotMiddleware);
 
 app.use(async (ctx) => {
-  console.log('try');
   ctx.set('Content-Type', 'text/html');
   ctx.body = devMiddleware.fileSystem.readFileSync(path.join(clientConfig.output.path, 'index.html'));
 });
