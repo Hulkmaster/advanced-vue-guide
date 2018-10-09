@@ -3,21 +3,18 @@ services:
   front:
     container_name: front
     hostname: front
-    build:
-      context: ./front
-      dockerfile: dev.dockerfile
+    build: front
     volumes:
       - ./front:/usr/front
       - /usr/front/node_modules
     environment:
       - PORT=80
-      - NODE_ENV=development
+      - NODE_ENV=production
 
   front-balancer:
     container_name: front-balancer
     hostname: front-balancer
     image: nginx:alpine
-    command: [nginx-debug, '-g', 'daemon off;']
     ports:
       - '80:80'
     volumes:
