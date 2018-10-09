@@ -1,11 +1,11 @@
 {
-  "name": "part1",
+  "name": "vue-guide",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev:build": "webpack --config webpack.config.dev.js --color --verbose --progress --watch",
-    "dev:server": "nodemon -w server server/index.js"
+    "dev:server": "NODE_ENV=development nodemon -w server server/index.js"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.19",
