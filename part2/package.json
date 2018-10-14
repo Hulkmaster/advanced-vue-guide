@@ -1,0 +1,27 @@
+{
+  "name": "vue-guide",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev:build": "webpack --config webpack.config.dev.js --color --verbose --progress --watch",
+    "dev:server": "NODE_ENV=development nodemon -w server server/index.js"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.18.4",
+    "vue-loader": "^15.4.2",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "koa": "^2.5.3",
+    "koa-mount": "^4.0.0",
+    "koa-static": "^5.0.0",
+    "vue": "^2.5.17",
+    "vuex-router-sync": "^5.0.0"
+  }
+}
