@@ -7,13 +7,15 @@ module.exports = (app) => {
   const clientCompiler = webpack(clientConfig);
 
   const devMiddleware = require('./koa-webpack-dev-middleware')(
-    clientCompiler, {
+    clientCompiler,
+    {
       publicPath: clientConfig.output.publicPath,
     }
   );
 
   const hotMiddleware = require('./koa-webpack-hot-middleware')(
-    clientCompiler, {
+    clientCompiler,
+    {
       heartbeat: 5000,
     }
   );
@@ -23,6 +25,8 @@ module.exports = (app) => {
 
   app.use(async (ctx) => {
     ctx.set('Content-Type', 'text/html');
-    ctx.body = devMiddleware.fileSystem.readFileSync(path.join(clientConfig.output.path, 'index.html'));
+    ctx.body = devMiddleware.fileSystem.readFileSync(
+      path.join(clientConfig.output.path, 'index.html')
+    );
   });
-}
+};

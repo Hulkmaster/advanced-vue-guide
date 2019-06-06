@@ -14,4 +14,4 @@ module.exports = (app) => {
     ctx.set('Content-Type', 'text/html');
     ctx.body = await readFile(path.join(__dirname, '../../dist/index.html'));
   });
-}
+};
