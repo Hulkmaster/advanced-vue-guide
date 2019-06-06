@@ -1,11 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const path = require('path');
-
-const rjk = require('postcss-preset-env');
 
 module.exports = {
   entry: ['./src/main.js'],
@@ -54,5 +53,6 @@ module.exports = {
       template: 'index.template.html',
     }),
     new VueLoaderPlugin(),
+    new CleanWebpackPlugin(),
   ],
 };

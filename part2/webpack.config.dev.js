@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
@@ -14,15 +14,15 @@ module.exports = {
     filename: '[name].[hash].bundle.js',
   },
   module: {
-    rules: [{
-      test: /\.vue$/,
-      loader: 'vue-loader',
-    }, ],
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+    ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
-      watch: true,
-    }),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: '../index.html',
       template: 'index.template.html',
