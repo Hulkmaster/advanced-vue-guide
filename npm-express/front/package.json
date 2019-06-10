@@ -1,0 +1,40 @@
+{
+  "name": "vue-guide",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon -w server server/index.js",
+    "prod": "npm run prod:build && npm run prod:server",
+    "prod:build": "webpack --config webpack.config.prod.js --color --verbose --progress",
+    "prod:server": "node server/index.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^2.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.19.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.6.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue-loader": "^15.7.0",
+    "vue-router": "^3.0.6",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "vue": "^2.6.10",
+    "vuex": "^3.1.1",
+    "vuex-router-sync": "^5.0.0"
+  }
+}
